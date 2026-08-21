@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김밥가게 미니게임</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- ========================= -->
+      <!-- 메인화면 -->
+      <!-- ========================= -->
+      <main id="mainScreen" class="screen">
+        <header id="statusBar">
+          <div class="statusBox">
+            <h3>수익</h3>
+            <p id="profit">0원</p>
+          </div>
+          <div class="statusBox">
+            <h3>남은시간</h3>
+            <p id="timeLeft">60</p>
+          </div>
+        </header>
+
+        <section id="orderBar">
+          <div id="customerEmoji">😊</div>
+          <div id="orderInfo">
+            <p id="customerSpeech">주문 내용이 여기에 표시됩니다.</p>
+            <div id="requiredIngredients"><!-- 필요한 재료 목록 --></div>
+          </div>
+          <div id="counter">
+            <p class="areaLabel">카운터</p>
+          </div>
+        </section>
+
+        <section id="ingredientBar">
+          <button class="ingredient" data-name="김">김</button>
+          <button class="ingredient" data-name="밥">밥</button>
+          <button class="ingredient" data-name="햄">햄</button>
+          <button class="ingredient" data-name="계란">계란</button>
+          <button class="ingredient" data-name="단무지">단무지</button>
+          <button class="ingredient" data-name="오이">오이</button>
+          <button class="ingredient" data-name="참치">참치</button>
+          <button class="ingredient" data-name="치즈">치즈</button>
+        </section>
+
+        <section id="workArea">
+          <div id="trashCan">
+            <p class="areaLabel">쓰레기통</p>
+          </div>
+          <div id="cookingCounter">
+            <p class="areaLabel">조리대</p>
+          </div>
+        </section>
+      </main>
+
+      <!-- ========================= -->
+      <!-- 닉네임 입력 모달 -->
+      <!-- ========================= -->
+      <div id="nicknameModal" class="modalOverlay screen">
+        <div class="modalBox">
+          <input id="nicknameInput" type="text" placeholder="닉네임 입력칸" maxlength="10" />
+          <button id="nicknameStartBtn" class="primaryBtn">시작</button>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- 시작화면 모달 -->
+      <!-- ========================= -->
+      <div id="startModal" class="modalOverlay screen hidden">
+        <div class="modalBox">
+          <h1>김밥가게</h1>
+          <button id="howToPlayBtn" class="secondaryBtn">게임 방법</button>
+          <button id="gameStartBtn" class="primaryBtn">게임 시작</button>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- 게임 방법 모달 -->
+      <!-- ========================= -->
+      <div id="howToPlayModal" class="modalOverlay screen hidden">
+        <div class="modalBox">
+          <h2>게임 방법</h2>
+          <p id="howToPlayText">
+            손님의 주문을 확인하고, 재료를 조리대로 드래그해 김밥을 완성한 뒤
+            카운터로 드래그하여 제출하세요. 제한 시간은 60초입니다.
+          </p>
+          <button id="howToPlayCloseBtn" class="primaryBtn">시작</button>
+        </div>
+      </div>
+
+      <!-- ========================= -->
+      <!-- 게임 종료 화면 -->
+      <!-- ========================= -->
+      <div id="gameOverModal" class="modalOverlay screen hidden">
+        <div class="modalBox">
+          <h2>게임 종료</h2>
+          <table id="rankingTable">
+            <thead>
+              <tr>
+                <th>등수</th>
+                <th>아이디</th>
+                <th>점수</th>
+              </tr>
+            </thead>
+            <tbody id="rankingBody">
+              <!-- 상위 10명 랭킹 행이 여기에 표시됩니다 -->
+            </tbody>
+          </table>
+          <p id="myRank" class="hidden">내 등수: -</p>
+          <button id="restartBtn" class="primaryBtn">처음으로</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>

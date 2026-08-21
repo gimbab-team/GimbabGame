@@ -1,0 +1,237 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f5e6a6;
+  font-family: "맑은 고딕", sans-serif;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.areaLabel {
+  color: #888;
+  font-size: 14px;
+}
+
+/* ========================= */
+/* 메인화면 */
+/* ========================= */
+
+#mainScreen {
+  width: 1000px;
+  margin: 20px auto;
+}
+
+#statusBar {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.statusBox {
+  width: 150px;
+  background: white;
+  border-radius: 12px;
+  padding: 12px;
+  text-align: center;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.15);
+}
+
+.statusBox h3 {
+  font-size: 14px;
+  color: #888;
+}
+
+.statusBox p {
+  margin-top: 6px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+#orderBar {
+  display: flex;
+  align-items: stretch;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+#customerEmoji {
+  width: 100px;
+  height: 100px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: #ffd54f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 60px;
+}
+
+#orderInfo {
+  flex: 1;
+  background: white;
+  border-radius: 15px;
+  padding: 15px 20px;
+}
+
+#customerSpeech {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+#requiredIngredients {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  min-height: 30px;
+}
+
+#counter {
+  width: 160px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#ingredientBar {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.ingredient {
+  height: 70px;
+  background: #81c784;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  cursor: grab;
+}
+
+.ingredient:hover {
+  filter: brightness(1.05);
+}
+
+#workArea {
+  display: flex;
+  gap: 15px;
+}
+
+#trashCan {
+  width: 160px;
+  flex-shrink: 0;
+  background: white;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#cookingCounter {
+  flex: 1;
+  min-height: 160px;
+  background: white;
+  border: 3px dashed #bbb;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ========================= */
+/* 모달 공통 */
+/* ========================= */
+
+.modalOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBox {
+  width: 420px;
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  text-align: center;
+}
+
+.modalBox h1,
+.modalBox h2 {
+  margin-bottom: 20px;
+}
+
+.modalBox p {
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+#nicknameInput {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.primaryBtn,
+.secondaryBtn {
+  width: 100%;
+  padding: 14px;
+  font-size: 16px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.primaryBtn {
+  background: #4caf50;
+}
+
+.secondaryBtn {
+  background: #607d8b;
+}
+
+/* ========================= */
+/* 게임 종료 랭킹 */
+/* ========================= */
+
+#rankingTable {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+#rankingTable th,
+#rankingTable td {
+  padding: 8px;
+  border-bottom: 1px solid #eee;
+  font-size: 15px;
+}
+
+#rankingTable tr.myRankRow {
+  background: #cde8ff;
+  font-weight: bold;
+}
+
+#myRank {
+  font-weight: bold;
+  color: #1976d2;
+}
