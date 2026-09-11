@@ -1,0 +1,280 @@
+@font-face {
+  font-family: "Gaegu-Bold";
+  src: url(../fonts/Gaegu-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Gaegu-Regular";
+  src: url(../fonts/Gaegu-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Gaegu-Light";
+  src: url(../fonts/Gaegu-Light.ttf);
+}
+
+#game-screen {
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  font-family: "Gaegu-Bold", sans-serif;
+  box-sizing: border-box;
+  padding: 20px;
+  gap: 16px;
+  overflow: hidden;
+}
+
+#game-screen .background {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+}
+
+#game-header {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.header-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  text-align: center;
+  padding: 0 14px;
+  box-sizing: border-box;
+}
+
+.header-box:nth-child(1) {
+  width: 308px;
+  height: 99px;
+  color: #ffffff;
+}
+
+.header-box:nth-child(2) {
+  width: 246px;
+  height: 99px;
+  color: #491621;
+}
+
+.header-box img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+/* TODO: 손님 이미지(아바타) - assets/customers/ 폴더에 이미지 파일을 추가할 것 */
+#customer-area {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+#customer-image {
+  width: 90px;
+  height: 90px;
+  object-fit: contain;
+}
+
+#order-bubble {
+  background-color: #ffffff;
+  border: 3px solid #febacd;
+  border-radius: 20px;
+  padding: 10px 20px;
+}
+
+#order-text {
+  margin: 0;
+  font-size: 34px;
+  color: #e17d15;
+}
+
+#order-ingredients {
+  margin: 4px 0 0;
+  font-size: 26px;
+  color: #bb5112;
+}
+
+.dropzone-label {
+  width: 100%;
+  margin: 0 0 6px;
+  font-size: 20px;
+  color: #bb5112;
+}
+
+.board-item img {
+  width: 140px;
+  object-fit: contain;
+}
+
+#workspace {
+  position: relative;
+  height: 472px;
+  flex-shrink: 0;
+}
+
+#ingredient-panel {
+  position: absolute;
+  left: 0;
+  top: 76px;
+  width: 1088px;
+  height: 396px;
+  border-radius: 16px;
+}
+
+.ingredient-slot {
+  position: absolute;
+  object-fit: contain;
+  padding: 6px;
+  box-sizing: border-box;
+  cursor: grab;
+}
+
+.ingredient-slot:nth-of-type(1) {
+  left: 40px;
+  top: 27px;
+  width: 140px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(2) {
+  left: 213px;
+  top: 27px;
+  width: 140px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(3) {
+  left: 389px;
+  top: 27px;
+  width: 140px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(4) {
+  left: 563px;
+  top: 27px;
+  width: 140px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(5) {
+  left: 738px;
+  top: 27px;
+  width: 140px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(6) {
+  left: 914px;
+  top: 27px;
+  width: 140px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(7) {
+  left: 33px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(8) {
+  left: 182px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(9) {
+  left: 337px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(10) {
+  left: 485px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(11) {
+  left: 635px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(12) {
+  left: 784px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+.ingredient-slot:nth-of-type(13) {
+  left: 935px;
+  top: 115px;
+  width: 120px;
+  height: 77px;
+}
+
+.base-slot {
+  position: absolute;
+  left: 48px;
+  object-fit: contain;
+  padding: 8px;
+  box-sizing: border-box;
+  width: 240px;
+  height: 76px;
+  cursor: grab;
+}
+
+.base-slot:nth-of-type(1) {
+  top: 204px;
+}
+.base-slot:nth-of-type(2) {
+  top: 297px;
+}
+
+.dropzone-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.board-items {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  height: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+}
+
+#cutting-board {
+  position: absolute;
+  left: 340px;
+  top: 204px;
+  width: 729px;
+  height: 169px;
+  cursor: grab;
+}
+
+#counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 358px;
+  height: 70px;
+}
+
+#trash-can {
+  position: absolute;
+  left: 1112px;
+  top: 100px;
+  width: 120px;
+  height: 365px;
+}

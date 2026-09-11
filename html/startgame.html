@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김밥말아</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/startPage.css" />
+  </head>
+  <body>
+    <div>
+      <!-- 시작 화면(게임 방법/게임 시작) -->
+      <div id="start-screen" class="screen active">
+        <img
+          class="background"
+          src="../assets/main_background.svg"
+          alt="background"
+        />
+        <img id="game-name" src="../assets/game_name.svg" alt="" />
+        <div id="start-modal">
+          <button
+            id="howtoplay-btn"
+            class="start-page-btn"
+            onclick="location.href = 'howtoplay.html'"
+          >
+            게임 방법
+          </button>
+          <button
+            id="gamestart-btn"
+            class="start-page-btn"
+            onclick="location.href = 'game.html'"
+          >
+            게임 시작
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

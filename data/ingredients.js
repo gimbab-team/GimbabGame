@@ -107,3 +107,14 @@ const ingredients = [
     image: "../assets/ingredients/cutlet.svg",
   },
 ];
+
+function getIngredientById(id) {
+  return ingredients.find((ing) => ing.id === id);
+}
+
+function getIngredientName(id) {
+  const ing = getIngredientById(id);
+  return ing ? ing.name : id;
+}
+
+export { ingredients, getIngredientById, getIngredientName };

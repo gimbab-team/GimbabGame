@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>김밥말아</title>
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/endGame.css" />
+  </head>
+  <body>
+    <div>
+      <!-- 게임 종료 화면 -->
+      <div id="gameover-screen" class="screen active">
+        <img class="background" src="../assets/default_background.svg" alt="" />
+        <div id="gameover-modal">
+          <div id="ranking-title">RANKING</div>
+          <ul id="ranking-list">
+            <li class="rank-item"></li>
+            <li class="rank-item"></li>
+            <li class="rank-item"></li>
+          </ul>
+          <button id="restart-btn" onclick="location.href = 'startgame.html'">
+            처음으로
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/endgame.js" defer></script>
+  </body>
+</html>
