@@ -5,25 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>김밥말아</title>
     <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/startPage.css" />
   </head>
   <body>
-    <div id="app">
+    <div>
       <!-- 닉네임 입력 화면 -->
-      <div id="nickname-screen" class="screen"></div>
-
-      <!-- 시작 화면(게임 방법/게임 시작) -->
-      <div id="start-screen" class="screen"></div>
-
-      <!-- 게임 설명 -->
-      <div id="howToPlay-screen" class="screen"></div>
-
-      <!-- 메인 게임 화면 -->
-      <div id="game-screen" class="screen"></div>
-
-      <!-- 게임 종료 화면 -->
-      <div id="gameover-screen" class="screen"></div>
+      <div id="nickname-screen" class="screen active">
+        <img
+          class="background"
+          src="../assets/main_background.svg"
+          alt="background"
+        />
+        <img id="game-name" src="../assets/game_name.svg" alt="" />
+        <input
+          id="input-nickname"
+          class="start-page-input"
+          type="text"
+          placeholder="닉네임을 입력하세요"
+        />
+        <button
+          id="nickname-start-btn"
+          class="start-page-btn"
+          onclick="location.href = 'startgame.html'"
+        >
+          시작
+        </button>
+      </div>
     </div>
-
-    <script src="../js/main.mjs" type="module"></script>
   </body>
 </html>

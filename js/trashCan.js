@@ -1,35 +1,8 @@
-let boardIngredients = [];
+// 쓰레기통
+import { getIngredientCost } from "./orderProfit.js";
 
-export function addIngredient(ingredient) {
-  boardIngredients.push(ingredient);
-  renderBoard();
+function trashCan(board, getIngredientById) {
+  return getIngredientCost(board, getIngredientById);
 }
 
-export function getBoardIngredients() {
-  return boardIngredients;
-}
-
-export function clearBoard() {
-  boardIngredients = [];
-  renderBoard();
-}
-
-function renderBoard() {
-  const boardEl = document.getElementById("cooking-board");
-  if (!boardEl) return;
-
-  boardEl.innerHTML = "";
-  boardIngredients.forEach((ing) => {
-    const img = document.createElement("img");
-    img.src = ing.image;
-    img.alt = ing.name;
-    boardEl.appendChild(img);
-  });
-}
-
-export function initTrash() {
-  const trashEl = document.getElementById("trash-can");
-  if (!trashEl) return;
-
-  trashEl.addEventListener("click", clearBoard);
-}
+export { trashCan };
