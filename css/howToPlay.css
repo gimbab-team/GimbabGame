@@ -1,0 +1,46 @@
+@font-face {
+  font-family: "Gaegu-Bold";
+  src: url(../fonts/Gaegu-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Gaegu-Regular";
+  src: url(../fonts/Gaegu-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Gaegu-Light";
+  src: url(../fonts/Gaegu-Light.ttf);
+}
+
+#explanation {
+  position: absolute;
+  padding: 0 9%;
+}
+
+#howToPlay-screen p {
+  font-size: 35px;
+  font-family: "Gaegu-Bold", sans-serif;
+  color: #e17d15;
+  margin: 14px 0;
+}
+
+#howToPlay-screen .detail {
+  color: #bb5112;
+  margin-left: 4%;
+}
+
+.howToPlay-page-btn {
+  font-family: "Gaegu-Bold", sans-serif;
+  position: absolute;
+  height: 10%;
+  width: 20%;
+  border-radius: 20px;
+  font-size: 35px;
+  right: 10%;
+  bottom: 6%;
+  border: none;
+  background-color: #fe93c8;
+  color: #ffffff;
+  cursor: pointer;
+}
