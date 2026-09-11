@@ -120,3 +120,13 @@ const menu = [
     coreIngredient: "beef",
   },
 ];
+
+function getMenuById(id) {
+  return menu.find((m) => m.id === id);
+}
+
+function getNormalMenu() {
+  return getMenuById("normal");
+}
+
+export { menu, getMenuById, getNormalMenu };
