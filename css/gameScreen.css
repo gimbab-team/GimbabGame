@@ -76,8 +76,8 @@
 }
 
 #customer-image {
-  width: 90px;
-  height: 90px;
+  width: 150px;
+  /* height: 90px; */
   object-fit: contain;
 }
 
