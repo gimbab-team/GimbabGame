@@ -68,7 +68,6 @@
   z-index: -1;
 }
 
-/* TODO: 손님 이미지(아바타) - assets/customers/ 폴더에 이미지 파일을 추가할 것 */
 #customer-area {
   display: flex;
   align-items: center;
