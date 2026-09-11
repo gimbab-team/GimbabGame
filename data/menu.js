@@ -122,7 +122,12 @@ const menu = [
 ];
 
 function getMenuById(id) {
-  return menu.find((m) => m.id === id);
+  for (const m of menu) {
+    if (m.id === id) {
+      return m;
+    }
+  }
+  return undefined;
 }
 
 function getNormalMenu() {
