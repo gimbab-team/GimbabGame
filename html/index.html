@@ -6,6 +6,7 @@
     <title>김밥말아</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/startPage.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <div>
@@ -23,14 +24,9 @@
           type="text"
           placeholder="닉네임을 입력하세요"
         />
-        <button
-          id="nickname-start-btn"
-          class="start-page-btn"
-          onclick="location.href = 'startgame.html'"
-        >
-          시작
-        </button>
+        <button id="nickname-start-btn" class="start-page-btn">시작</button>
       </div>
     </div>
+    <script src="../js/nickname.js" type="module"></script>
   </body>
 </html>
