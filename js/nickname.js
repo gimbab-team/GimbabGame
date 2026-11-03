@@ -27,10 +27,23 @@ async function saveNickname() {
 const startBtn = document.getElementById("nickname-start-btn");
 startBtn.addEventListener("click", saveNickname);
 
-function checkAlreadyRegistered() {
+// 기존 사용자인지 확인
+async function checkAlreadyRegistered() {
   const deviceId = localStorage.getItem("device_id");
 
-  if (deviceId) {
+  const { data, error } = await supabase
+    .from("rankings")
+    .select("device_id")
+    .eq("device_id", deviceId)
+    .maybeSingle();
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  // 있으면 시작화면으로 이동
+  if (data) {
     location.href = "startgame.html";
   }
 }

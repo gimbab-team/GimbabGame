@@ -28,7 +28,9 @@ async function updateBestScore() {
       nickname: sessionStorage.getItem("nickname") || "익명",
       best_score: finalProfit,
     });
+
     if (insertError) console.log(insertError);
+
     return;
   }
 
@@ -92,4 +94,5 @@ async function init() {
   await showRanking();
 }
 
+// 페이지가 실행 시 초기화 함수 실행
 init();
