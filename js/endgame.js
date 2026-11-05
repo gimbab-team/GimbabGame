@@ -1,13 +1,13 @@
 // 엔딩 화면(최고 점수 저장 + 랭킹 표시)
-import { supabase, getDeviceId } from "./supabase.js";
+import { supabase, findUser } from "./supabase.js";
 
 // 최고 점수 갱신
 async function updateBestScore() {
   // 게임에서 저장해 둔 최종 수익
-  const finalProfit = Number(sessionStorage.getItem("finalProfit"));
+  const finalProfit = Number(sessionStorage.getItem("finalProfit")) || 0;
 
-  // 이 기기의 고유 ID
-  const deviceId = getDeviceId();
+  // 이 기기의 고유 ID로 내 기록 조회
+  const user = await findUser(localStorage.getItem("device_id"));
 
   // 내 기록(최고 점수) 조회
   const { data, error } = await supabase
@@ -35,21 +35,22 @@ async function updateBestScore() {
   }
 
   // 기존 최고 점수보다 높을 때만 갱신
-  if (finalProfit > data.best_score) {
-    await supabase
-      .from("rankings")
-      .update({ best_score: finalProfit })
-      .eq("device_id", deviceId);
+  if (finalProfit > user.best_score) {
+    const { error } = await supabase
+      .from("users")
+      .update({ best_score: finalProfit, updated_at: new Date().toISOString() })
+      .eq("id", user.id);
+    if (error) console.log(error);
   }
 }
 
 // 랭킹 표시(상위 10명)
 async function showRanking() {
-  const deviceId = getDeviceId();
+  const deviceId = localStorage.getItem("device_id");
 
   // 점수 높은 순으로 10명 조회
   const { data, error } = await supabase
-    .from("rankings")
+    .from("users")
     .select("device_id, nickname, best_score")
     .order("best_score", { ascending: false })
     .limit(10);

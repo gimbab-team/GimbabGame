@@ -3,13 +3,29 @@ import { getIngredientById } from "../data/ingredients.js";
 
 // 재료 이미지 렌더링
 function renderIngredientItem(container, ing, className) {
+  const slot = document.createElement("div");
+  slot.className = className;
+  slot.draggable = true;
+  slot.dataset.id = ing.id;
+
   const img = document.createElement("img");
-  img.className = className;
+  img.className = "slot-img";
   img.src = ing.image;
   img.alt = ing.name;
-  img.draggable = true;
-  img.dataset.id = ing.id;
-  container.appendChild(img);
+  img.draggable = false;
+
+  const tag = document.createElement("div");
+  tag.className = "slot-tag";
+  const tagBg = document.createElement("img");
+  tagBg.src = "../assets/tag-space.svg";
+  tagBg.alt = "";
+  tagBg.draggable = false;
+  const name = document.createElement("span");
+  name.textContent = ing.name;
+  tag.append(tagBg, name);
+
+  slot.append(img, tag);
+  container.appendChild(slot);
 }
 
 function renderIngredientList(elements, ingredients) {

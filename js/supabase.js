@@ -16,4 +16,19 @@ function getDeviceId() {
   return deviceId;
 }
 
-export { getDeviceId };
+// 이 기기의 device_id로 등록된 사용자 조회 (없으면 null)
+async function findUser(deviceId) {
+  if (!deviceId) return null;
+  const { data, error } = await supabase
+    .from("users")
+    .select("id, nickname, best_score")
+    .eq("device_id", deviceId)
+    .maybeSingle();
+  if (error) {
+    console.log(error);
+    return null;
+  }
+  return data;
+}
+
+export { getDeviceId, findUser };
