@@ -9,9 +9,28 @@ async function updateBestScore() {
   // 이 기기의 고유 ID로 내 기록 조회
   const user = await findUser(localStorage.getItem("device_id"));
 
-  // 등록되지 않은 사용자면 닉네임 입력 화면으로
-  if (!user) {
-    location.href = "index.html";
+  // 내 기록(최고 점수) 조회
+  const { data, error } = await supabase
+    .from("rankings")
+    .select("best_score")
+    .eq("device_id", deviceId)
+    .maybeSingle();
+
+  if (error) {
+    console.log(error);
+    return;
+  }
+
+  // 기록이 없으면 새로 등록
+  if (!data) {
+    const { error: insertError } = await supabase.from("rankings").insert({
+      device_id: deviceId,
+      nickname: sessionStorage.getItem("nickname") || "익명",
+      best_score: finalProfit,
+    });
+
+    if (insertError) console.log(insertError);
+
     return;
   }
 
@@ -76,4 +95,5 @@ async function init() {
   await showRanking();
 }
 
+// 페이지가 실행 시 초기화 함수 실행
 init();
