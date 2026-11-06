@@ -1,5 +1,5 @@
 // 타이머
-const GAME_TIME = 60;
+const GAME_TIME = 100;
 
 function startTimer(elements, state, timeUp) {
   clearInterval(state.timerId);
