@@ -4,6 +4,8 @@ import { supabase, findUser } from "./supabase.js";
 // 최고 점수 갱신
 async function updateBestScore() {
   // 게임에서 저장해 둔 최종 수익
+  const deviceId = localStorage.getItem("device_id");
+  const nickname = sessionStorage.getItem("nickname") || "익명";
   const finalProfit = Number(sessionStorage.getItem("finalProfit")) || 0;
 
   // 이 기기의 고유 ID로 내 기록 조회
@@ -11,8 +13,8 @@ async function updateBestScore() {
 
   // 내 기록(최고 점수) 조회
   const { data, error } = await supabase
-    .from("rankings")
-    .select("best_score")
+    .from("users")
+    .select("id, best_score")
     .eq("device_id", deviceId)
     .maybeSingle();
 
@@ -23,9 +25,9 @@ async function updateBestScore() {
 
   // 기록이 없으면 새로 등록
   if (!data) {
-    const { error: insertError } = await supabase.from("rankings").insert({
+    const { error: insertError } = await supabase.from("users").insert({
       device_id: deviceId,
-      nickname: sessionStorage.getItem("nickname") || "익명",
+      nickname: nickname,
       best_score: finalProfit,
     });
 
@@ -35,12 +37,15 @@ async function updateBestScore() {
   }
 
   // 기존 최고 점수보다 높을 때만 갱신
-  if (finalProfit > user.best_score) {
-    const { error } = await supabase
+  if (finalProfit > data.best_score || data.best_score === 0) {
+    const { error: updateError } = await supabase
       .from("users")
-      .update({ best_score: finalProfit, updated_at: new Date().toISOString() })
-      .eq("id", user.id);
-    if (error) console.log(error);
+      .update({
+        best_score: finalProfit,
+        nickname: nickname,
+        updated_at: new Date().toISOString(),
+      })
+      .eq("device_id", deviceId);
   }
 }
 
@@ -82,10 +87,31 @@ async function showRanking() {
     // 점수
     const score = document.createElement("span");
     score.className = "rank-score";
-    score.textContent = data[i].best_score + "원";
+    score.textContent = Number(data[i].best_score).toLocaleString() + "원";
 
     item.append(name, score);
     rankingList.appendChild(item);
+  }
+}
+
+const fixedMyRankBar = document.getElementById("my-fixed-rank");
+
+if (fixedMyRankBar) {
+  if (isMyRankInTop10) {
+    // 내가 Top 10에 들었으면 버튼 위 고정 바 숨김
+    fixedMyRankBar.style.display = "none";
+  } else {
+    // 내가 Top 10 밖(11위 이하)이면 고정 바 보이기
+    fixedMyRankBar.style.display = "flex";
+
+    const myNickname = sessionStorage.getItem("nickname") || "내 기록";
+    const myScore = Number(sessionStorage.getItem("finalProfit")) || 0;
+
+    const myNameElem = fixedMyRankBar.querySelector(".my-rank-name");
+    const myScoreElem = fixedMyRankBar.querySelector(".my-rank-score");
+
+    if (myNameElem) myNameElem.textContent = myNickname;
+    if (myScoreElem) myScoreElem.textContent = Number(myScore).toLocaleString() + "원";
   }
 }
 
