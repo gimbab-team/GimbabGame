@@ -69,3 +69,39 @@
   cursor: pointer;
   font-family: "Gaegu-Regular", sans-serif;
 }
+
+.greeting {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 430px;
+  font-size: 40px;
+  color: var(--brown);
+  white-space: nowrap;
+  min-height: 50px;
+}
+
+/* 시작 메뉴 */
+.greeting {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 440px;
+  font-size: 34px;
+  color: var(--brown);
+  white-space: nowrap;
+}
+
+.menu-buttons {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  width: 330px;
+}
+.menu-buttons .btn {
+  font-size: 38px;
+}

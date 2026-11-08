@@ -6,34 +6,41 @@
     <title>김밥말아</title>
     <link rel="stylesheet" href="../css/style.css" />
     <link rel="stylesheet" href="../css/startPage.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   </head>
   <body>
     <div>
       <!-- 시작 화면(게임 방법/게임 시작) -->
-      <div id="start-screen" class="screen active">
-        <img
-          class="background"
-          src="../assets/main_background.svg"
-          alt="background"
-        />
-        <img id="game-name" src="../assets/game_name.svg" alt="" />
-        <div id="start-modal">
-          <button
-            id="howtoplay-btn"
-            class="start-page-btn"
-            onclick="location.href = 'howtoplay.html'"
-          >
-            게임 방법
-          </button>
-          <button
-            id="gamestart-btn"
-            class="start-page-btn"
-            onclick="location.href = 'game.html'"
-          >
-            게임 시작
-          </button>
+      <div id="start-screen" class="screen title-screen">
+        <img class="background" src="../assets/main_background.svg" alt="" />
+        <img id="game-name" src="../assets/game_name.svg" alt="김밥말아" />
+        <p class="subtitle">오늘은 어떤 손님이 올까요?</p>
+
+        <div id="typing" class="greeting"></div>
+        <div class="menu-buttons">
+          <button id="gamestart-btn" class="btn">게임 시작</button>
+          <button id="howtoplay-btn" class="btn secondary">게임 방법</button>
         </div>
       </div>
+
+      <script type="module">
+        import { typeText } from "../js/typewriter.js";
+        import { getNickname } from "../js/supabase.js";
+
+        const nickname = await getNickname();
+        if (!nickname) {
+          location.href = "index.html";
+        } else {
+          typeText(`${nickname} 사장님, 어서 오세요!`);
+        }
+
+        document
+          .getElementById("gamestart-btn")
+          .addEventListener("click", () => (location.href = "game.html"));
+        document
+          .getElementById("howtoplay-btn")
+          .addEventListener("click", () => (location.href = "howtoplay.html"));
+      </script>
     </div>
   </body>
 </html>
