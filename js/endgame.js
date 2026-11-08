@@ -14,7 +14,7 @@ async function updateBestScore() {
   // 내 기록(최고 점수) 조회
   const { data, error } = await supabase
     .from("users")
-    .select("best_score")
+    .select("id, best_score")
     .eq("device_id", deviceId)
     .maybeSingle();
 
@@ -45,7 +45,7 @@ async function updateBestScore() {
         nickname: nickname,
         updated_at: new Date().toISOString(),
       })
-      .eq("id", data.id);
+      .eq("device_id", deviceId);
   }
 }
 
@@ -87,7 +87,7 @@ async function showRanking() {
     // 점수
     const score = document.createElement("span");
     score.className = "rank-score";
-    score.textContent = data[i].best_score + "원";
+    score.textContent = Number(data[i].best_score).toLocaleString() + "원";
 
     item.append(name, score);
     rankingList.appendChild(item);
@@ -111,7 +111,7 @@ if (fixedMyRankBar) {
     const myScoreElem = fixedMyRankBar.querySelector(".my-rank-score");
 
     if (myNameElem) myNameElem.textContent = myNickname;
-    if (myScoreElem) myScoreElem.textContent = myScore.toLocaleString() + "원";
+    if (myScoreElem) myScoreElem.textContent = Number(myScore).toLocaleString() + "원";
   }
 }
 
