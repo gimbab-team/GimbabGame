@@ -1,0 +1,9 @@
+<svg width="120" height="230" viewBox="0 0 120 230" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="4" width="112" height="222" rx="8" fill="#C98B55" stroke="#491621" stroke-width="5"/>
+  <rect x="18" y="20" width="84" height="80" rx="40" fill="#BFE9FF" stroke="#491621" stroke-width="4"/>
+  <path d="M30 60 Q40 34 64 30" stroke="#fff" stroke-width="6" fill="none" stroke-linecap="round"/>
+  <rect x="18" y="116" width="84" height="94" rx="8" fill="#B07642" stroke="#491621" stroke-width="3"/>
+  <circle cx="96" cy="128" r="7" fill="#F7D774" stroke="#491621" stroke-width="3"/>
+  <rect x="30" y="146" width="60" height="30" rx="6" fill="#FFF6E0" stroke="#491621" stroke-width="2.5"/>
+  <text x="60" y="168" font-family="Gaegu-Bold, sans-serif" font-size="18" text-anchor="middle" fill="#8A0073">OPEN</text>
+</svg>

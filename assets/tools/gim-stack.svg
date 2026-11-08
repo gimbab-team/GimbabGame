@@ -1,0 +1,13 @@
+<svg width="130" height="90" viewBox="0 0 130 90" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="65" cy="82" rx="58" ry="6" fill="#000" opacity=".12"/>
+  <g stroke="#0d1c10" stroke-width="3">
+    <path d="M10 70 L22 52 H120 L108 70 Z" fill="#1c3a20"/>
+    <path d="M12 60 L24 42 H122 L110 60 Z" fill="#234a28"/>
+    <path d="M8 50 L20 32 H118 L106 50 Z" fill="#1f3f24"/>
+    <path d="M14 40 L26 22 H124 L112 40 Z" fill="#2a552f"/>
+  </g>
+  <path d="M34 28 L100 28" stroke="#4f8a55" stroke-width="2" opacity=".7"/>
+  <path d="M30 34 L60 34" stroke="#4f8a55" stroke-width="2" opacity=".6"/>
+  <rect x="38" y="62" width="54" height="22" rx="6" fill="#FFF6E0" stroke="#491621" stroke-width="2.5"/>
+  <text x="65" y="79" font-family="Gaegu-Bold, sans-serif" font-size="16" text-anchor="middle" fill="#1f3f24">김</text>
+</svg>
