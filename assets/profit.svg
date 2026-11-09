@@ -1,8 +1,8 @@
-<svg width="246" height="99" viewBox="0 0 246 99" fill="none" xmlns="http://www.w3.org/2000/svg">
-<mask id="path-1-inside-1_205_172" fill="white">
-<path d="M0 0H245.202V99H0V0Z"/>
+<svg width="346" height="99" viewBox="0 0 346 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="346" height="99" fill="#8A0073"/>
+<mask id="stroke0_18_2" fill="white">
+<path d="M0 0H346V99H0V0Z"/>
 </mask>
-<path d="M0 0H245.202V99H0V0Z" fill="#8A0073"/>
-<path d="M0 0V-2H-2V0H0ZM245.202 0H247.202V-2H245.202V0ZM245.202 99V104H247.202V99H245.202ZM0 99H-2V104H0V99ZM0 0V2H245.202V0V-2H0V0ZM245.202 0H243.202V99H245.202H247.202V0H245.202ZM245.202 99V94H0V99V104H245.202V99ZM0 99H2V0H0H-2V99H0Z" fill="#491621" mask="url(#path-1-inside-1_205_172)"/>
-<rect x="13.7871" y="12.875" width="218.836" height="68.3" rx="3.5" fill="#F6EBE7" stroke="#491621"/>
+<path d="M0 0V-2H-2V0H0ZM346 0H348V-2H346V0ZM346 99V104H348V99H346ZM0 99H-2V104H0V99ZM0 0V2H346V0V-2H0V0ZM346 0H344V99H346H348V0H346ZM346 99V94H0V99V104H346V99ZM0 99H2V0H0H-2V99H0Z" fill="#491621" mask="url(#stroke0_18_2)"/>
+<rect x="19.5" y="12.5" width="309" height="69" rx="3.5" fill="#F6EBE7" stroke="#491621"/>
 </svg>
