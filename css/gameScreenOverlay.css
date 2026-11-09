@@ -1,0 +1,39 @@
+/* 오버레이 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(73, 22, 33, 0.45);
+  backdrop-filter: blur(3px);
+}
+
+.overlay-card {
+  background: var(--cream);
+  border: 5px solid var(--brown);
+  border-radius: 28px;
+  padding: 30px 56px 38px;
+  text-align: center;
+  box-shadow: 0 12px 0 var(--brown);
+}
+.overlay-card .overlay-title {
+  font-size: 56px;
+  color: var(--plum);
+}
+.overlay-desc {
+  font-family: "Gaegu-Regular", sans-serif;
+  font-size: 28px;
+  line-height: 1.35;
+  margin: 10px 0 26px;
+}
+.pause-buttons {
+  display: flex;
+  gap: 18px;
+  margin-top: 26px;
+}
+
+.overlay.hidden {
+  display: none;
+}
