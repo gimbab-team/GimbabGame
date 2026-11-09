@@ -3,6 +3,17 @@ import { state, elements } from "./state.js";
 import { createRandomOrder } from "./randomOrder.js";
 import { getIngredientName } from "../../data/ingredients.js";
 
+const doorSound = new Audio(
+  "../assets/sounds/freesound_community-shop-door-bell-6405.mp3",
+);
+doorSound.volume = 0.8;
+
+function playDoorSound() {
+  doorSound.currentTime = 0.2; // 처음으로 되감기
+  doorSound.play();
+  setTimeout(() => doorSound.pause(), 1100);
+}
+
 const PATIENCE_MS = 30000; // 손님이 기다려 주는 시간
 const SLOT_COUNT = 1; // 손님은 한 번에 한 명씩
 
@@ -31,6 +42,8 @@ function fillSlot(slot) {
       <div class="chips">${chips}${noChip}</div>
       <div class="patience"><div class="fill"></div></div>
     </div>`;
+
+  playDoorSound();
 }
 
 function renderCustomers() {

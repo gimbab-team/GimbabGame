@@ -1,6 +1,18 @@
 // 도마: 김, 밥, 토핑 올리기 / 자르기
 // HTML 기본 드래그 앤 드롭(draggable, dragstart, dragover, drop) 사용
 
+const cuttingSound = new Audio(
+  "../assets/sounds/freesound_community-cutting-board-chops-scrapes-61998.mp3",
+);
+cuttingSound.volume = 1;
+// cuttingSound.playbackRate = 1.8; // 배속 (1.5~2 사이로 조절)
+
+function playCuttingSound() {
+  cuttingSound.currentTime = 2;
+  cuttingSound.play();
+  setTimeout(() => cuttingSound.pause(), 500);
+}
+
 // 도마 위 상태
 const boardState = {
   gim: false,
@@ -28,7 +40,8 @@ function setupBoardDrag() {
   function canAccept(types) {
     if (boardState.rolled) return false; // 말고 나면 재료를 더 올릴 수 없다
     if (types.includes("text/x-gim")) return !boardState.gim;
-    if (types.includes("text/x-rice")) return boardState.gim && !boardState.rice;
+    if (types.includes("text/x-rice"))
+      return boardState.gim && !boardState.rice;
     if (types.includes("text/plain")) return boardState.rice; // 토핑
     return false;
   }
@@ -175,6 +188,7 @@ function setupCut() {
 
   cutBtn.addEventListener("click", () => {
     if (cutBtn.disabled) return;
+    playCuttingSound();
     boardState.cut = true;
     updateCutButton();
   });

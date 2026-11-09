@@ -3,6 +3,11 @@ import { state, elements, updateProfitDisplay } from "./state.js";
 import { startTimer } from "./timer.js";
 import { renderCustomers } from "./customers.js";
 
+// 배경 음악 설정
+const playBGM = new Audio("../assets/sounds/the_mountain-children-522447.mp3");
+playBGM.loop = true; // true = 반복재생, false = 한 번만 실행
+playBGM.volume = 0.08;
+
 function startGame() {
   state.profit = 0;
   state.totalSales = 0;
@@ -27,6 +32,7 @@ function endGame() {
 function openShop() {
   elements.readyOverlay.classList.add("hidden");
   state.playing = true;
+  playBGM.play();
   startGame();
 }
 
@@ -35,12 +41,14 @@ function pauseGame() {
   if (!state.playing) return;
   clearInterval(state.timerId);
   state.paused = true;
+  playBGM.pause();
   elements.pauseOverlay.classList.remove("hidden");
 }
 
 function resumeGame() {
   elements.pauseOverlay.classList.add("hidden");
   state.paused = false;
+  playBGM.play();
   startTimer(elements, state, endGame, false);
 }
 
