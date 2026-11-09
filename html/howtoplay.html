@@ -10,33 +10,55 @@
   <body>
     <div>
       <!-- 게임 설명 -->
-      <div id="howToPlay-screen" class="screen active">
+      <div id="howtoplay-screen" class="screen title-screen">
         <img class="background" src="../assets/default_background.svg" alt="" />
-        <div id="explanation">
-          <p>1. 손님의 주문을 확인한다</p>
-          <p class="detail">
-            게임이 시작되면 손님의 주문이 나타난다. 손님이 원하는 김밥 종류와
-            필요한 재료를 확인한다.
-          </p>
-          <p>2. 재료를 조리대에 넣어 김밥을 만든다.</p>
-          <p class="detail">
-            원하는 재료를 마우스로 드래그하여 조리대에 가져다 놓는다. 김밥은
-            반드시 김 → 밥 → 추가 재료 순서로 만들어야 한다.
-          </p>
-          <p>3. 완성한 김밥을 드래그하여 카운터에 제출한다.</p>
-          <p>4. 정확히 만들면 수익을 얻는다.</p>
-          <p class="detail">
-            재료가 빠졌거나 잘못 들어간 경우에는 오류 개수에 따라 수익이
-            줄어든다.
-          </p>
+        <div class="htp-card">
+          <div class="htp-title">김밥 만드는 방법</div>
+          <div class="htp-steps">
+            <div class="htp-step">
+              <img src="../assets/tools/gim-stack.svg" alt="" /><b
+                >1. 김 깔기</b
+              >
+              <p>김을 도마로 끌어다 놓기</p>
+            </div>
+            <div class="htp-step">
+              <img src="../assets/tools/cooker-body.svg" alt="" /><b
+                >2. 밥 푸기</b
+              >
+              <p>밥솥을 누른 채 김 위로 끌어 펼치기</p>
+            </div>
+            <div class="htp-step">
+              <img src="../assets/ingredients/carrot.svg" alt="" /><b
+                >3. 재료 올리기</b
+              >
+              <p>말풍선에 적힌 재료만 올려놓기</p>
+            </div>
+            <div class="htp-step">
+              <img src="../assets/tools/knife.svg" alt="" /><b>4. 말고 자르기</b>
+              <p>도마를 더블클릭해 말고, 자르기 버튼 누르기</p>
+            </div>
+            <div class="htp-step">
+              <img src="../assets/board/roll.svg" alt="" /><b>5. 서빙</b>
+              <p>자른 김밥을 손님에게 끌어다 주기</p>
+            </div>
+          </div>
+          <div class="htp-buttons">
+            <button
+              id="back-btn"
+              class="btn secondary"
+              onclick="location.href = 'startgame.html'"
+            >
+              뒤로
+            </button>
+            <button
+              id="start-btn"
+              class="btn"
+              onclick="location.href = 'game.html'"
+            >
+              바로 시작!
+            </button>
+          </div>
         </div>
-        <button
-          id="howtoplay-start-btn"
-          class="howToPlay-page-btn"
-          onclick="location.href = 'game.html'"
-        >
-          시작
-        </button>
       </div>
     </div>
   </body>

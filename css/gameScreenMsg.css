@@ -1,0 +1,94 @@
+/* 말풍선 */
+.bubble {
+  position: absolute;
+  left: 170px;
+  top: 4px;
+  width: 320px;
+  box-sizing: border-box;
+  background: white;
+  border: 3px solid var(--brown);
+  border-radius: 18px;
+  padding: 6px 10px 8px;
+  transform-origin: 0% 70%;
+  animation: bubbleIn 0.35s cubic-bezier(0.2, 1.6, 0.4, 1);
+}
+.bubble.out {
+  animation: bubbleOut 0.25s ease-in forwards;
+}
+@keyframes bubbleIn {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+@keyframes bubbleOut {
+  to {
+    transform: scale(0);
+    opacity: 0;
+  }
+}
+.bubble .say {
+  margin: 0;
+  min-height: 24px;
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--orange);
+}
+.bubble .menu-name {
+  margin: 4px 0 2px;
+  font-size: 32px;
+  color: var(--plum);
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.bubble .menu-name small {
+  font-size: 24px;
+  color: #a66f4e;
+}
+
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.chip {
+  font-family: "Gaegu-Regular", sans-serif;
+  font-size: 22px;
+  line-height: 1;
+  padding: 3px 7px 4px;
+  border-radius: 8px;
+  background: var(--cream);
+  border: 1.5px solid #e3c99d;
+  color: #7a4a2a;
+}
+.chip.no {
+  background: #ffe1e1;
+  border-color: #ff8a8a;
+  color: #d23b3b;
+  text-decoration: line-through;
+}
+
+.patience {
+  margin-top: 6px;
+  height: 12px;
+  border: 2px solid var(--brown);
+  border-radius: 8px;
+  background: #f1e6ea;
+  overflow: hidden;
+}
+.patience .fill {
+  height: 100%;
+  width: 100%;
+  background: #6cc48a;
+  transition: background 0.4s;
+}
+.patience .fill.mid {
+  background: #f7c948;
+}
+.patience .fill.low {
+  background: #ff6b6b;
+}

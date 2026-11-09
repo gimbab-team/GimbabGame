@@ -11,20 +11,23 @@
   <body>
     <div>
       <!-- 닉네임 입력 화면 -->
-      <div id="nickname-screen" class="screen active">
-        <img
-          class="background"
-          src="../assets/main_background.svg"
-          alt="background"
-        />
-        <img id="game-name" src="../assets/game_name.svg" alt="" />
-        <input
-          id="input-nickname"
-          class="start-page-input"
-          type="text"
-          placeholder="닉네임을 입력하세요"
-        />
-        <button id="nickname-start-btn" class="start-page-btn">시작</button>
+      <div id="nickname-screen" class="screen title-screen">
+        <img class="background" src="../assets/main_background.svg" alt="" />
+        <img id="game-name" src="../assets/game_name.svg" alt="김밥말아" />
+        <p class="subtitle">
+          어서 오십시오~ 지금부터 맛있는 김밥을 만들어 볼까요?
+        </p>
+
+        <div class="start-form">
+          <input
+            id="input-nickname"
+            class="start-page-input"
+            type="text"
+            maxlength="10"
+            placeholder="닉네임을 입력하세요(최대 10자)"
+          />
+          <button id="nickname-start-btn" class="btn">시작!</button>
+        </div>
       </div>
     </div>
     <script src="../js/nickname.js" type="module"></script>

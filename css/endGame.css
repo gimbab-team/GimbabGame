@@ -1,87 +1,126 @@
-@font-face {
-  font-family: "Gaegu-Bold";
-  src: url(../fonts/Gaegu-Bold.ttf);
-}
-
-@font-face {
-  font-family: "Gaegu-Regular";
-  src: url(../fonts/Gaegu-Regular.ttf);
-}
-
-@font-face {
-  font-family: "Gaegu-Light";
-  src: url(../fonts/Gaegu-Light.ttf);
-}
-
-#gameover-modal {
+.panel {
   position: absolute;
-  top: 15%;
-  width: 75%;
+  top: 91px;
+  height: 655px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 24px;
-  font-family: "Gaegu-Bold", sans-serif;
-  color: #bb5112;
+  background: var(--cream);
+  border: 5px solid var(--brown);
+  border-radius: 28px;
+  box-shadow: 0 12px 0 var(--brown);
 }
 
+#result-panel {
+  left: 72px;
+  width: 558px;
+}
+
+#ranking-panel {
+  left: 662px;
+  width: 549px;
+}
+
+.panel-title,
 #ranking-title {
-  background-color: #ffffff;
-  border: 4px solid #f6a8c6;
-  border-radius: 40px;
-  padding: 16px 60px;
-  font-size: 36px;
+  margin-top: 36px;
+  font-size: 56px;
+  color: var(--plum);
+}
+
+#stars {
+  display: flex;
+  gap: 14px;
+  margin-top: 20px;
+  font-size: 64px;
+  line-height: 1;
+}
+
+#final-profit {
+  margin-top: 28px;
+  font-size: 44px;
+  color: var(--brown);
+}
+#final-profit b {
+  font-size: 96px;
+  color: var(--orange);
+}
+
+#grade-line {
+  margin-top: 8px;
+  font-size: 46px;
+  color: var(--plum);
+}
+
+.stat-grid {
+  margin-top: 36px;
+  display: flex;
+  gap: 20px;
+}
+
+.stat {
+  width: 200px;
+  padding: 12px 0 14px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border: 4px solid var(--brown);
+  border-radius: 18px;
+}
+
+.stat-icon {
+  font-size: 44px;
+}
+
+.stat-num {
+  font-size: 44px;
+  line-height: 1;
+  color: var(--orange);
+}
+
+.stat-label {
+  margin-top: 4px;
+  font-family: "Gaegu-Regular", sans-serif;
+  font-size: 22px;
+  color: var(--brown);
 }
 
 #ranking-list {
-  margin: 0;
-  padding: 0;
+  margin: 24px 0 0;
+  padding: 0 28px;
   width: 100%;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 10px;
+  max-height: 380px;
+  overflow-y: auto;
 }
 
 .rank-item {
-  height: 90px;
-  border-radius: 20px;
+  flex-shrink: 0;
+  height: 48px;
+  border-radius: 16px;
   border: 3px solid #f6a8c6;
   background-color: #ffffff;
   display: flex;
   align-items: center;
-  padding: 0 24px;
-  font-size: 32px;
-  color: #bb5112;
+  justify-content: space-between;
+  padding: 0 18px;
+  font-size: 26px;
+  color: var(--orange);
   box-sizing: border-box;
-  list-style: none;
 }
-
-#restart-btn {
-  width: 100%;
-  height: 100px;
-  border-radius: 20px;
-  border: none;
-  background-color: #fe93c8;
-  color: #ffffff;
-  font-size: 32px;
-  font-family: "Gaegu-Bold", sans-serif;
-  cursor: pointer;
-}
-
 .rank-item.my-rank {
-  background-color: #fe93c8;
-  border-color: #fe93c8;
-  color: #ffffff;
+  background-color: #fdf3c8;
+  border-color: var(--plum);
 }
 
-.rank-name {
-  width: 50%;
-  text-align: right;
-  padding-right: 30px; 
-}
-
-.rank-score {
-  width: 50%;
-  text-align: left;
-  padding-left: 30px;
+.end-buttons {
+  position: absolute;
+  bottom: 40px;
+  gap: 24px;
 }

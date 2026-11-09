@@ -1,0 +1,11 @@
+<svg width="160" height="130" viewBox="0 0 160 130" xmlns="http://www.w3.org/2000/svg">
+  <ellipse cx="80" cy="122" rx="66" ry="8" fill="#000" opacity=".12"/>
+  <path d="M14 22 Q14 10 26 10 H134 Q146 10 146 22 V100 Q146 120 126 120 H34 Q14 120 14 100 Z" fill="#FFF6FA" stroke="#491621" stroke-width="4"/>
+  <path d="M14 22 Q14 10 26 10 H134 Q146 10 146 22 V34 H14 Z" fill="#FE93C8" stroke="#491621" stroke-width="4"/>
+  <rect x="44" y="56" width="72" height="34" rx="10" fill="#491621"/>
+  <rect x="50" y="62" width="60" height="22" rx="6" fill="#9BE7B0"/>
+  <text x="80" y="79" font-family="Gaegu-Bold, sans-serif" font-size="17" text-anchor="middle" fill="#1F5131">취사중</text>
+  <circle cx="40" cy="104" r="6" fill="#F084BE" stroke="#491621" stroke-width="2"/>
+  <circle cx="120" cy="104" r="6" fill="#9BE7B0" stroke="#491621" stroke-width="2"/>
+  <path d="M30 44 Q34 40 40 44" stroke="#FFBFDF" stroke-width="5" fill="none" stroke-linecap="round"/>
+</svg>

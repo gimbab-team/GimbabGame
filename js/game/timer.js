@@ -1,9 +1,9 @@
 // 타이머
 const GAME_TIME = 100;
 
-function startTimer(elements, state, timeUp) {
+function startTimer(elements, state, timeUp, reset = true) {
   clearInterval(state.timerId);
-  state.timeLeft = GAME_TIME;
+  if (reset) state.timeLeft = GAME_TIME;
   elements.timerValue.textContent = state.timeLeft;
 
   state.timerId = setInterval(() => {

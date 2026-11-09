@@ -13,16 +13,42 @@
       <!-- 게임 종료 화면 -->
       <div id="gameover-screen" class="screen active">
         <img class="background" src="../assets/default_background.svg" alt="" />
-        <div id="gameover-modal">
+
+        <!-- 왼쪽(결과) -->
+        <div id="result-panel" class="panel">
+          <div class="panel-title">오늘의 영업 결과</div>
+          <div id="stars"></div>
+          <div id="final-profit"><b id="profit-won">0</b>원</div>
+          <div id="grade-line"></div>
+          <div class="stat-grid">
+            <div class="stat">
+              <div class="stat-icon">😍</div>
+              <div class="stat-num" id="happy-count">0</div>
+              <div class="stat-label">만족한 손님</div>
+            </div>
+            <div class="stat">
+              <div class="stat-icon">😡</div>
+              <div class="stat-num" id="angry-count">0</div>
+              <div class="stat-label">화난 손님</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 오른쪽(랭킹) -->
+        <div id="ranking-panel" class="panel">
           <div id="ranking-title">RANKING</div>
-          <ul id="ranking-list">
-            <li class="rank-item"></li>
-            <li class="rank-item"></li>
-            <li class="rank-item"></li>
-          </ul>
-          <button id="restart-btn" onclick="location.href = 'startgame.html'">
-            처음으로
-          </button>
+          <ul id="ranking-list"></ul>
+          <div class="end-buttons">
+            <button class="btn" onclick="location.href = 'game.html'">
+              한 판 더!
+            </button>
+            <button
+              class="btn secondary"
+              onclick="location.href = 'startgame.html'"
+            >
+              처음으로
+            </button>
+          </div>
         </div>
       </div>
     </div>

@@ -1,0 +1,266 @@
+/* 주방 */
+#kitchen {
+  position: absolute;
+  left: 0;
+  top: 420px;
+  width: 1280px;
+  height: 412px;
+}
+
+#topping-panel {
+  position: absolute;
+  left: 14px;
+  top: 8px;
+  width: 366px;
+  height: 396px;
+  padding: 8px;
+  background: white;
+  border: 4px solid var(--brown);
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+#topping-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px;
+}
+
+.topping {
+  position: relative;
+  height: 70px;
+  border-radius: 12px;
+  background: #fff;
+  border: 2px solid #f3cfe0;
+  cursor: grab;
+}
+.topping:active {
+  cursor: grabbing;
+}
+.topping img.ing {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  top: 6px;
+  width: calc(100% - 12px);
+  height: 38px;
+  object-fit: contain;
+  pointer-events: none;
+}
+.topping .tag {
+  position: absolute;
+  left: 50%;
+  bottom: 3px;
+  transform: translateX(-50%);
+  width: 84px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.topping .tag img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+.topping .tag span {
+  position: relative;
+  font-family: "Gaegu-Regular", sans-serif;
+  font-size: 18px;
+  color: #a66f4e;
+}
+
+/* 도마 */
+#board-area {
+  position: absolute;
+  left: 392px;
+  top: 8px;
+  width: 500px;
+  height: 396px;
+}
+
+#board {
+  position: relative;
+  width: 500px;
+  height: 288px;
+  border: 4px solid var(--brown);
+  border-radius: 20px;
+  box-sizing: border-box;
+  background: url(../assets/board/cutting-board.svg) 0 0 / 100% 100% no-repeat;
+  overflow: hidden;
+  touch-action: none;
+}
+#board.drop-ok {
+  box-shadow:
+    0 0 0 5px #ffe066,
+    inset 0 -8px 0 rgba(73, 22, 33, 0.15);
+}
+#board .sheet {
+  position: absolute;
+  left: 50px;
+  top: 30px;
+  width: 396px;
+  height: 222px;
+  border-radius: 4px;
+  background: url(../assets/board/gim-sheet.svg) 0 0 / 100% 100% no-repeat;
+  opacity: 0;
+  pointer-events: none;
+}
+#board.has-gim .sheet {
+  opacity: 1;
+}
+#board.rolled .sheet {
+  opacity: 0;
+}
+
+.rice-layer {
+  position: absolute;
+  left: 50%;
+  top: 58%;
+  width: 94%;
+  height: 78%;
+  transform: translate(-50%, -50%);
+  border-radius: 6%;
+  background: #fff url(../assets/ingredients/rice.svg) center / 120px 26px;
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.06);
+  opacity: 0;
+}
+#board.has-rice .rice-layer {
+  opacity: 1;
+}
+
+.filling {
+  position: absolute;
+  left: 0;
+  right: 0; /* 김(.sheet)의 가로 길이와 같게 */
+  top: 24%; /* 첫 재료 시작 위치 */
+  height: 80%;
+}
+.filling img {
+  position: absolute;
+  left: 50%;
+  height: 34px; /* 가로 길이는 JS(scaleX)가 김 폭에 맞춘다 */
+}
+
+.roll {
+  position: absolute;
+  top: 150px;
+  left: 50px;
+  width: 396px;
+  height: 80px;
+  border-radius: 40px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#board.rolled .roll {
+  top: 100px;
+  opacity: 1;
+  pointer-events: auto;
+  cursor: grab;
+}
+
+.roll-body {
+  position: absolute;
+  inset: 0;
+  border-radius: 40px;
+  background: url(../assets/board/roll.svg) 0 0 / 100% 100% no-repeat;
+  overflow: hidden;
+}
+
+/* 도구 */
+#tools {
+  position: absolute;
+  left: 904px;
+  top: 8px;
+  width: 364px;
+  height: 396px;
+  background: white;
+  border: 4px solid var(--brown);
+  border-radius: 18px;
+  box-sizing: border-box;
+}
+
+.tool {
+  position: absolute;
+  cursor: pointer;
+}
+.tool img {
+  width: 100%;
+  display: block;
+  pointer-events: none;
+}
+
+/* 도구 이름표 */
+.tool[data-name]::after {
+  content: attr(data-name);
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  margin-top: 2px;
+  white-space: nowrap;
+  font-family: "Gaegu-Regular", sans-serif;
+  font-size: 20px;
+  color: #a66f4e;
+  pointer-events: none;
+}
+.tool.draggable {
+  cursor: grab;
+}
+.tool:hover {
+  transform: translateY(-4px) rotate(-3deg);
+}
+
+#cooker {
+  left: 8px;
+  top: 34px;
+  width: 160px;
+  height: 150px;
+}
+#cooker .cooker-body {
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 160px;
+}
+#cooker .cooker-rice {
+  position: absolute;
+  left: 14px;
+  top: 12px;
+  width: 132px;
+}
+
+#gim-stack {
+  left: 229px;
+  top: 66px;
+  width: 116px;
+}
+
+#trash-can {
+  left: 276px;
+  top: 150px;
+  width: 60px;
+}
+/* 자르기 버튼 */
+#cut-btn .ico {
+  height: 36px;
+  width: auto;
+  vertical-align: middle;
+}
+
+#cut-btn {
+  position: absolute;
+  left: 24px;
+  top: 226px;
+  width: 220px;
+  font-size: 30px;
+  padding: 8px 10px 12px;
+}
+#cut-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}

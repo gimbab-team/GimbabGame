@@ -1,3 +1,4 @@
+// 닉네임 입력 화면
 import { supabase, getDeviceId, findUser } from "./supabase.js";
 
 const nicknameInput = document.getElementById("input-nickname");
@@ -21,7 +22,7 @@ async function saveNickname() {
 
   if (error) {
     startBtn.disabled = false;
-    // 23505: unique 위반 (닉네임 중복)
+    // 닉네임 중복
     if (error.code === "23505") {
       if (error.message.includes("device_id")) {
         // 이미 등록된 기기 -> 그대로 진행

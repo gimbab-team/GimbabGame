@@ -5,65 +5,258 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>김밥말아</title>
     <link rel="stylesheet" href="../css/style.css" />
-    <link rel="stylesheet" href="../css/gameScreen.css" />
+    <link rel="stylesheet" href="../css/gameScreenTop.css" />
+    <link rel="stylesheet" href="../css/gameScreenShop.css" />
+    <link rel="stylesheet" href="../css/gameScreenMsg.css" />
+    <link rel="stylesheet" href="../css/gameScreenKit.css" />
+    <link rel="stylesheet" href="../css/gameScreenOverlay.css" />
   </head>
   <body>
-    <div>
-      <!-- 메인 게임 화면 -->
-      <div id="game-screen" class="screen active">
-        <img class="background" src="../assets/main_background.svg" alt="" />
-        <div id="game-header">
-          <div class="header-box">
-            <img src="../assets/timer.svg" alt="" />
-            <span id="timer-value">60</span>초
-          </div>
-          <div class="header-box">
-            <img src="../assets/profit.svg" alt="" />
-            수익: <span id="profit-value">0</span>원
-          </div>
+    <!-- 메인 게임 화면 -->
+    <div id="game-screen" class="screen">
+      <img class="background" src="../assets/main_background.svg" alt="" />
+
+      <!-- 왼쪽 위: 일시정지 -->
+      <div id="top-left">
+        <button id="pause-btn" class="sound-btn">
+          <img class="ico" src="../assets/icons/pause.svg" alt="" />
+        </button>
+      </div>
+
+      <!-- 오른쪽 위: 타이머, 수익 -->
+      <div id="game-header">
+        <div class="header-box timer-box">
+          <img src="../assets/timer.svg" alt="" />
+          <span><span id="timer-value">120</span>초</span>
         </div>
-
-        <div id="customer-area">
-          <img id="customer-image" src="" alt="손님" />
-          <div id="order-bubble">
-            <p id="order-text"></p>
-            <p id="order-ingredients"></p>
-          </div>
+        <div class="header-box profit-box">
+          <img src="../assets/profit.svg" alt="" />
+          <span>수익 <span id="profit-value">0</span>원</span>
         </div>
+      </div>
 
-        <div id="workspace">
-          <!-- 카운터: 완성한 김밥을 제출하는 드롭존 -->
-          <div id="counter" class="dropzone">
-            <img class="dropzone-bg" src="../assets/counter.svg" alt="" />
-          </div>
+      <!-- 가게(손님 구역) -->
+      <div id="shop">
+        <div id="customer-slots"></div>
+      </div>
 
-          <div id="ingredient-panel">
-            <img src="../assets/ingredient-list.svg" alt="" />
-            <!-- 재료 목록(토핑): main.mjs가 data/ingredients.js로부터 렌더링 -->
-            <div id="ingredient-list"></div>
-
-            <!-- 기본 재료(김, 밥): main.mjs가 data/ingredients.js로부터 렌더링 -->
-            <div id="base-ingredients"></div>
-
-            <!-- 조리대: 재료를 순서대로 쌓는 드롭존 -->
-            <div id="cutting-board" class="dropzone" draggable="true">
+      <!-- 주방 -->
+      <div id="kitchen">
+        <!-- 토핑 재료 -->
+        <div id="topping-panel">
+          <div id="topping-list">
+            <div class="topping" draggable="true" data-id="egg">
+              <img class="ing" src="../assets/ingredients/egg.svg" alt="계란" />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>계란</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="danmuji">
               <img
-                class="dropzone-bg"
-                src="../assets/cutting-board.svg"
-                alt=""
+                class="ing"
+                src="../assets/ingredients/danmuji.svg"
+                alt="단무지"
               />
-              <div class="board-items"></div>
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>단무지</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="ham">
+              <img class="ing" src="../assets/ingredients/ham.svg" alt="햄" />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>햄</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="crabstick">
+              <img
+                class="ing"
+                src="../assets/ingredients/crabstick.svg"
+                alt="맛살"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>맛살</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="carrot">
+              <img
+                class="ing"
+                src="../assets/ingredients/carrot.svg"
+                alt="당근"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>당근</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="cucumber">
+              <img
+                class="ing"
+                src="../assets/ingredients/cucumber.svg"
+                alt="오이"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>오이</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="cheese">
+              <img
+                class="ing"
+                src="../assets/ingredients/cheese.svg"
+                alt="치즈"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>치즈</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="tuna">
+              <img
+                class="ing"
+                src="../assets/ingredients/tuna.svg"
+                alt="참치"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>참치</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="perilla">
+              <img
+                class="ing"
+                src="../assets/ingredients/perilla.svg"
+                alt="깻잎"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>깻잎</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="kimchi">
+              <img
+                class="ing"
+                src="../assets/ingredients/kimchi.svg"
+                alt="김치"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>김치</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="burdock">
+              <img
+                class="ing"
+                src="../assets/ingredients/burdock.svg"
+                alt="우엉"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>우엉</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="beef">
+              <img
+                class="ing"
+                src="../assets/ingredients/beef.svg"
+                alt="소고기"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>소고기</span>
+              </div>
+            </div>
+            <div class="topping" draggable="true" data-id="cutlet">
+              <img
+                class="ing"
+                src="../assets/ingredients/cutlet.svg"
+                alt="돈까스"
+              />
+              <div class="tag">
+                <img src="../assets/tag-space.svg" alt="" />
+                <span>돈까스</span>
+              </div>
             </div>
           </div>
+        </div>
 
-          <!-- 쓰레기통: 만들던 김밥을 폐기하는 드롭존 -->
-          <div id="trash-can" class="dropzone">
-            <img class="dropzone-bg" src="../assets/trash-can.svg" alt="" />
+        <!-- 도마 + 김발 -->
+        <div id="board-area">
+          <div id="board" draggable="true">
+            <div class="sheet">
+              <div class="rice-layer"></div>
+              <div class="filling"></div>
+            </div>
+            <div class="roll">
+              <div class="roll-body"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 도구 -->
+        <div id="tools">
+          <div
+            id="cooker"
+            class="tool draggable"
+            data-name="밥솥"
+            draggable="true"
+          >
+            <img
+              class="cooker-body"
+              src="../assets/tools/cooker-body.svg"
+              alt="밥솥"
+            />
+            <img
+              class="cooker-rice"
+              src="../assets/tools/cooker-rice.svg"
+              alt=""
+            />
+          </div>
+          <div
+            id="gim-stack"
+            class="tool draggable"
+            data-name="김"
+            draggable="true"
+          >
+            <img src="../assets/tools/gim-stack.svg" alt="김" />
+          </div>
+          <button id="cut-btn" class="btn">
+            <img class="ico" src="../assets/tools/knife.svg" alt="" /> 자르기
+          </button>
+          <div id="trash-can" class="tool" data-name="쓰레기통">
+            <img src="../assets/trash-can.svg" alt="쓰레기통" />
+          </div>
+        </div>
+      </div>
+
+      <!-- 시작 전 -->
+      <div id="ready-overlay" class="overlay">
+        <div class="overlay-card">
+          <div class="overlay-title">오늘도 김밥 가게 오픈!</div>
+          <p class="overlay-desc">
+            제한 시간 <b>100초</b> 동안 손님 주문대로 김밥을 말아 주세요.<br />
+            빠르고 정확할수록 <b>팁</b>이 올라가요!
+          </p>
+          <button id="ready-btn" class="btn">영업 시작 ▶</button>
+        </div>
+      </div>
+
+      <!-- 일시정지 -->
+      <div id="pause-overlay" class="overlay hidden">
+        <div class="overlay-card">
+          <div class="overlay-title">잠깐 쉬는 중</div>
+          <div class="pause-buttons">
+            <button id="resume-btn" class="btn">계속하기</button>
+            <button id="restart-btn" class="btn secondary">다시 하기</button>
+            <button id="home-btn" class="btn secondary">처음으로</button>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="../js/main.mjs" type="module"></script>
+    <script src="../js/game/main.js" type="module"></script>
   </body>
 </html>

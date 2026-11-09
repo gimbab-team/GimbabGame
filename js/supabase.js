@@ -9,7 +9,8 @@ function getDeviceId() {
   let deviceId = localStorage.getItem("device_id");
 
   if (!deviceId) {
-    deviceId = "device_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
+    deviceId =
+      "device_" + Date.now() + "_" + Math.floor(Math.random() * 100000);
     localStorage.setItem("device_id", deviceId);
   }
 
@@ -32,3 +33,11 @@ async function findUser(deviceId) {
 }
 
 export { getDeviceId, findUser };
+
+// 닉네임 조회
+async function getNickname() {
+  const user = await findUser(getDeviceId());
+  return user ? user.nickname : null;
+}
+
+export { getNickname };

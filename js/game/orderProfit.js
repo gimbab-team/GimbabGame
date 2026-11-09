@@ -30,7 +30,10 @@ function checkOrder(order, board) {
 
 // 재료 원가
 function getIngredientCost(board, getIngredientById) {
-  return board.reduce((sum, id) => sum + (getIngredientById(id)?.cost ?? 0), 0);
+  return board.reduce((sum, id) => {
+    const item = getIngredientById(id);
+    return sum + (item && item.cost ? item.cost : 0);
+  }, 0);
 }
 
 // 카운터 제출(판정 + 재료비)
@@ -56,10 +59,4 @@ function subtractProfit(state, ingredientCost) {
   return state.profit;
 }
 
-export {
-  checkOrder,
-  getIngredientCost,
-  counterSubmit,
-  addProfit,
-  subtractProfit,
-};
+export { getIngredientCost, counterSubmit, addProfit, subtractProfit };

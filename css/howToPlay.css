@@ -1,46 +1,55 @@
-@font-face {
-  font-family: "Gaegu-Bold";
-  src: url(../fonts/Gaegu-Bold.ttf);
-}
-
-@font-face {
-  font-family: "Gaegu-Regular";
-  src: url(../fonts/Gaegu-Regular.ttf);
-}
-
-@font-face {
-  font-family: "Gaegu-Light";
-  src: url(../fonts/Gaegu-Light.ttf);
-}
-
-#explanation {
+.htp-card {
   position: absolute;
-  padding: 0 9%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 1080px;
+  padding: 18px 34px 26px;
+  background: var(--cream);
+  border: 5px solid var(--brown);
+  border-radius: 28px;
+  box-shadow: 0 12px 0 var(--brown);
+  text-align: center;
 }
 
-#howToPlay-screen p {
-  font-size: 35px;
-  font-family: "Gaegu-Bold", sans-serif;
-  color: #e17d15;
-  margin: 14px 0;
+.htp-title {
+  font-size: 54px;
+  color: var(--plum);
 }
 
-#howToPlay-screen .detail {
-  color: #bb5112;
-  margin-left: 4%;
+.htp-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 10px;
 }
 
-.howToPlay-page-btn {
-  font-family: "Gaegu-Bold", sans-serif;
-  position: absolute;
-  height: 10%;
-  width: 20%;
-  border-radius: 20px;
-  font-size: 35px;
-  right: 10%;
-  bottom: 6%;
-  border: none;
-  background-color: #fe93c8;
-  color: #ffffff;
-  cursor: pointer;
+.htp-step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 10px 8px;
+  background: white;
+  border: 3px solid var(--brown);
+  border-radius: 18px;
+}
+.htp-step img {
+  height: 70px;
+  max-width: 150px;
+}
+.htp-step b {
+  font-size: 28px;
+  color: var(--orange);
+}
+.htp-step p {
+  font-family: "Gaegu-Regular", sans-serif;
+  font-size: 21px;
+}
+
+.htp-buttons {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  gap: 24px;
 }
