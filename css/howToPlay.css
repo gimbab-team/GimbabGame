@@ -47,24 +47,8 @@
   font-size: 21px;
 }
 
-.htp-tips {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 6px 10px;
-  margin: 16px 0 18px;
-  font-family: "Gaegu-Regular", sans-serif;
-  font-size: 23px;
-  text-align: left;
-}
-.htp-tips b {
-  font-family: "Gaegu-Bold", sans-serif;
-  color: var(--plum);
-}
-.htp-tips .ico {
-  width: 30px;
-}
-
 .htp-buttons {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
   gap: 24px;

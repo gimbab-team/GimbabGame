@@ -58,18 +58,6 @@
   outline: none;
 }
 
-.start-page-btn {
-  height: 12%;
-  width: 45%;
-  border-radius: 20px;
-  font-size: 180%;
-  color: white;
-  border: none;
-  background-color: #fe93c8;
-  cursor: pointer;
-  font-family: "Gaegu-Regular", sans-serif;
-}
-
 .greeting {
   position: absolute;
   left: 50%;
