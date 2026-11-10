@@ -67,7 +67,7 @@ async function showRanking() {
 
 // 수익에 따른 등급
 const RANKS = [
-  { min: 30000, icon: "👑", title: "김밥의 달인", stars: 3 },
+  { min: 20000, icon: "👑", title: "김밥의 달인", stars: 3 },
   { min: 15000, icon: "🍙", title: "김밥 장인", stars: 2 },
   { min: 5000, icon: "🥢", title: "알바생", stars: 1 },
   { min: -Infinity, icon: "🐥", title: "일반인", stars: 0 },
